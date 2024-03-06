@@ -32,10 +32,13 @@ const assignmentHandler = (req, res) =>
         return req.on('end', () => 
         {
             const parsedUsername = Buffer.concat(usernames).toString();
-            console.log(parsedUsername);
+            console.log(parsedUsername.split('=')[1]);
             const un = parsedUsername.split('=')[1];
             fs.writeFileSync('Usernames.txt', un);
         })
+        res.statusCode = 302;
+        res.setHeader('Location', '/');
+        res.end();
     }
 
     res.setHeader(`Content-Type`, `text/html`);
