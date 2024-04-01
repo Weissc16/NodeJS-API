@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const errorController = require('./controllers/error');
+const errorController = require('./controllers/error.js');
 
 const app = express();
 
